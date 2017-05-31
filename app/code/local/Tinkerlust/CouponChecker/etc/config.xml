@@ -1,0 +1,25 @@
+<config>
+    <modules>
+        <Tinkerlust_CouponChecker>
+            <version>0.0.1</version>
+        </Tinkerlust_CouponChecker>
+    </modules>
+    <global>
+        <models>
+            <tinkerlustcouponchecker>
+                <class>Couponchecker_Model</class>
+            </tinkerlustcouponchecker>
+        </models>
+        <events>
+            <controller_action_predispatch_checkout_cart_couponPost>
+                <observers>
+                    <tinkerlust_couponchecker_model_observer>
+                        <type>singleton</type>
+                        <class>Tinkerlust_CouponChecker_Model_Observer</class>
+                        <method>check</method>
+                    </tinkerlust_couponchecker_model_observer>
+                </observers>
+            </controller_action_predispatch_checkout_cart_couponPost>
+        </events>
+    </global>
+</config>
